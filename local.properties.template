@@ -1,0 +1,23 @@
+## This file is a template for local.properties
+## Copy this file to local.properties and fill in your actual values
+## 
+## This file must *NOT* be checked into Version Control Systems,
+# as it contains information specific to your local configuration.
+#
+# Location of the SDK. This is only used by Gradle.
+# For customization when using a Version Control System, please read the
+# header note.
+
+# Android SDK location (update this path to match your system)
+sdk.dir=/path/to/your/Android/sdk
+
+# API Key for the FitnessTracker application
+# Replace YOUR_ACTUAL_API_KEY_HERE with your real API key
+API_KEY=YOUR_ACTUAL_API_KEY_HERE
+
+# Google Maps API Key
+# Replace YOUR_ACTUAL_MAPS_API_KEY_HERE with your real Google Maps API key
+MAPS_API_KEY=YOUR_ACTUAL_MAPS_API_KEY_HERE
+
+# Optional: Base URL override (if different from default)
+# BASE_URL=https://your-custom-api-url.com
