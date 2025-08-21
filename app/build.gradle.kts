@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.fitnesstracker.android.application.compose)
     alias(libs.plugins.fitnesstracker.jvm.ktor)
+    // Firebase plugins removed - using simplified implementations
 }
 
 android {
@@ -93,11 +94,7 @@ dependencies {
     implementation(projects.core.connectivity.domain)
     implementation(projects.core.connectivity.data)
 
-    // Firebase - temporarily disabled for demo
-    // implementation(platform(libs.firebase.bom))
-    // implementation(libs.firebase.analytics)
-    // implementation(libs.firebase.crashlytics)
-    // implementation(libs.firebase.performance)
+    // Firebase (simplified implementation - no external dependencies)
 
     // Performance monitoring (debug only)
     debugImplementation(libs.leakcanary.android)
