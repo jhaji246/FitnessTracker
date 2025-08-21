@@ -45,6 +45,19 @@
             </intent-filter>
         </activity>
 
+        <!-- BLE Test Activity for easy testing -->
+        <activity
+            android:name=".BleTestActivity"
+            android:exported="true"
+            android:label="BLE Test"
+            android:theme="@style/Theme.App.Starting">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="fitnesstracker" android:host="ble_test" />
+            </intent-filter>
+        </activity>
+
         <provider
             android:name="androidx.startup.InitializationProvider"
             android:authorities="${applicationId}.androidx-startup"
