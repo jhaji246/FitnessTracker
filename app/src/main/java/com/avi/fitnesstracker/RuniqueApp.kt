@@ -1,6 +1,8 @@
 package com.avi.fitnesstracker
 
 import android.app.Application
+import androidx.work.Configuration
+import androidx.work.WorkManager
 import com.avi.auth.data.di.authDataModule
 import com.avi.auth.presentation.di.authViewModelModule
 import com.avi.core.connectivity.data.di.coreConnectivityDataModule
@@ -25,6 +27,12 @@ class FitnessTrackerApp: Application() {
     
     override fun onCreate() {
         super.onCreate()
+        
+        // Initialize WorkManager
+        val workManagerConfiguration = Configuration.Builder()
+            .setMinimumLoggingLevel(android.util.Log.INFO)
+            .build()
+        WorkManager.initialize(this, workManagerConfiguration)
         
         startKoin {
             androidLogger(Level.INFO)

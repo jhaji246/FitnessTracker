@@ -119,40 +119,84 @@ private fun MapImage(
     imageUrl: String?,
     modifier: Modifier = Modifier
 ) {
-    SubcomposeAsyncImage(
-        model = imageUrl,
-        contentDescription = stringResource(id = R.string.run_map),
-        modifier = modifier
-            .fillMaxWidth()
-            .aspectRatio(16 / 9f)
-            .clip(RoundedCornerShape(15.dp)),
-        loading = {
-            Box(
-                modifier = Modifier
-                    .fillMaxSize(),
-                contentAlignment = Alignment.Center
+    if (imageUrl.isNullOrBlank()) {
+        // Show a placeholder when no map image is available
+        Box(
+            modifier = modifier
+                .fillMaxWidth()
+                .aspectRatio(16 / 9f)
+                .clip(RoundedCornerShape(15.dp))
+                .background(MaterialTheme.colorScheme.surfaceVariant),
+            contentAlignment = Alignment.Center
+        ) {
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center
             ) {
-                CircularProgressIndicator(
-                    modifier = Modifier.size(20.dp),
-                    strokeWidth = 2.dp,
-                    color = MaterialTheme.colorScheme.onSurface
+                Icon(
+                    imageVector = RunOutlinedIcon,
+                    contentDescription = null,
+                    modifier = Modifier.size(48.dp),
+                    tint = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.6f)
                 )
-            }
-        },
-        error = {
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(MaterialTheme.colorScheme.errorContainer),
-                contentAlignment = Alignment.Center
-            ) {
+                Spacer(modifier = Modifier.height(8.dp))
                 Text(
-                    text = stringResource(id = R.string.error_couldnt_load_image),
-                    color = MaterialTheme.colorScheme.error
+                    text = stringResource(id = R.string.run_map),
+                    color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.6f),
+                    style = MaterialTheme.typography.bodyMedium
                 )
             }
         }
-    )
+    } else {
+        SubcomposeAsyncImage(
+            model = imageUrl,
+            contentDescription = stringResource(id = R.string.run_map),
+            modifier = modifier
+                .fillMaxWidth()
+                .aspectRatio(16 / 9f)
+                .clip(RoundedCornerShape(15.dp)),
+            loading = {
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize(),
+                    contentAlignment = Alignment.Center
+                ) {
+                    CircularProgressIndicator(
+                        modifier = Modifier.size(20.dp),
+                        strokeWidth = 2.dp,
+                        color = MaterialTheme.colorScheme.onSurface
+                    )
+                }
+            },
+            error = {
+                // Better error state with a more user-friendly message
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(MaterialTheme.colorScheme.surfaceVariant),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Column(
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.Center
+                    ) {
+                        Icon(
+                            imageVector = RunOutlinedIcon,
+                            contentDescription = null,
+                            modifier = Modifier.size(48.dp),
+                            tint = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.6f)
+                        )
+                        Spacer(modifier = Modifier.height(8.dp))
+                        Text(
+                            text = stringResource(id = R.string.run_map),
+                            color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.6f),
+                            style = MaterialTheme.typography.bodyMedium
+                        )
+                    }
+                }
+            }
+        )
+    }
 }
 
 @Composable

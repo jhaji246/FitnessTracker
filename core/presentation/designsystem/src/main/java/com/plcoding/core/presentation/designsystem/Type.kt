@@ -64,3 +64,27 @@ val Typography = Typography(
         color = RuniqueWhite
     ),
 )
+
+// Additional typography styles for auth module
+val PoppinsTypography = object {
+    val h1 = TextStyle(
+        fontFamily = Poppins,
+        fontWeight = FontWeight.Bold,
+        fontSize = 32.sp,
+        lineHeight = 40.sp
+    )
+    
+    val h2 = TextStyle(
+        fontFamily = Poppins,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 24.sp,
+        lineHeight = 32.sp
+    )
+    
+    val body1 = TextStyle(
+        fontFamily = Poppins,
+        fontWeight = FontWeight.Normal,
+        fontSize = 16.sp,
+        lineHeight = 24.sp
+    )
+}

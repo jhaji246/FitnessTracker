@@ -40,6 +40,10 @@ composeMaterialWearOs = "1.0.0-alpha32"
 health = "1.0.0-rc02"
 play-services-wearable = "19.0.0"
 wear = "1.3.0"
+mockk = "1.13.8"
+turbine = "1.0.0"
+leakcanary = "2.12"
+firebase-bom = "32.7.2"
 
 # Project versions
 projectApplicationId = "com.avi.fitnesstracker"
@@ -106,6 +110,23 @@ androidx-wear-compose-ui-tooling = { group = "androidx.wear.compose", name = "co
 play-services-wearable = { group = "com.google.android.gms", name = "play-services-wearable", version.ref = "play-services-wearable" }
 androidx-health-services-client = { group = "androidx.health", name = "health-services-client", version.ref = "health" }
 androidx-wear = { group = "androidx.wear", name = "wear", version.ref = "wear" }
+
+# Testing libraries
+mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
+coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutines" }
+turbine = { group = "app.cash.turbine", name = "turbine", version.ref = "turbine" }
+androidx-arch-core-testing = { group = "androidx.arch.core", name = "core-testing", version = "2.2.0" }
+androidx-test-runner = { group = "androidx.test", name = "runner", version = "1.5.2" }
+androidx-test-rules = { group = "androidx.test", name = "rules", version = "1.5.0" }
+
+# Performance monitoring
+leakcanary-android = { group = "com.squareup.leakcanary", name = "leakcanary-android", version.ref = "leakcanary" }
+
+# Firebase
+firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebase-bom" }
+firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics" }
+firebase-crashlytics = { group = "com.google.firebase", name = "firebase-crashlytics" }
+firebase-performance = { group = "com.google.firebase", name = "firebase-performance" }
 
 # Gradle
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }

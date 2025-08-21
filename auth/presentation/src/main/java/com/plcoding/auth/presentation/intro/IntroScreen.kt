@@ -20,7 +20,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.avi.auth.presentation.R
 import com.avi.core.presentation.designsystem.LogoIcon
-import com.avi.core.presentation.designsystem.Poppins
+
 import com.avi.core.presentation.designsystem.RuniqueTheme
 import com.avi.core.presentation.designsystem.components.GradientBackground
 import com.avi.core.presentation.designsystem.components.RuniqueActionButton
@@ -30,13 +30,16 @@ import java.time.LocalDateTime
 @Composable
 fun IntroScreenRoot(
     onSignUpClick: () -> Unit,
-    onSignInClick: () -> Unit
+    onSignInClick: () -> Unit,
+    onSkip: () -> Unit = {}
 ) {
     IntroScreen(
         onAction = { action ->
             when(action) {
                 IntroAction.OnSignInClick -> onSignInClick()
                 IntroAction.OnSignUpClick -> onSignUpClick()
+                IntroAction.OnSkip -> onSkip()
+                IntroAction.OnGetStarted -> onSignUpClick() // Get Started goes to Sign Up
             }
         }
     )
@@ -63,25 +66,27 @@ fun IntroScreen(
         ) {
             Text(
                 text = stringResource(id = R.string.welcome_to_fitnesstracker),
-                style = Poppins.h1,
+                style = MaterialTheme.typography.headlineLarge,
                 color = MaterialTheme.colorScheme.onSurface
             )
             Text(
                 text = stringResource(id = R.string.fitnesstracker_description),
-                style = Poppins.body1,
+                style = MaterialTheme.typography.bodyLarge,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 textAlign = TextAlign.Center
             )
             Spacer(modifier = Modifier.height(32.dp))
             RuniqueOutlinedActionButton(
                 text = stringResource(id = R.string.skip),
-                onClick = onSkip,
+                onClick = { onAction(IntroAction.OnSkip) },
+                isLoading = false,
                 modifier = Modifier.fillMaxWidth()
             )
             Spacer(modifier = Modifier.height(16.dp))
             RuniqueActionButton(
                 text = stringResource(id = R.string.get_started),
-                onClick = onGetStarted,
+                onClick = { onAction(IntroAction.OnGetStarted) },
+                isLoading = false,
                 modifier = Modifier.fillMaxWidth()
             )
         }
@@ -98,7 +103,7 @@ private fun RuniqueLogoVertical(
     ) {
         Text(
             text = stringResource(id = R.string.fitnesstracker),
-            style = Poppins.h2,
+            style = MaterialTheme.typography.headlineMedium,
             color = MaterialTheme.colorScheme.primary
         )
     }

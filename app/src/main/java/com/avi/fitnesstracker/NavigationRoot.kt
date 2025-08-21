@@ -41,6 +41,13 @@ private fun NavGraphBuilder.authGraph(navController: NavHostController) {
                 },
                 onSignInClick = {
                     navController.navigate(Routes.Login)
+                },
+                onSkip = {
+                    navController.navigate(Routes.Run) {
+                        popUpTo(Routes.Auth) {
+                            inclusive = true
+                        }
+                    }
                 }
             )
         }

@@ -9,6 +9,7 @@ import com.avi.core.domain.util.EmptyResult
 import com.avi.core.domain.util.Result
 import com.avi.core.domain.util.asEmptyDataResult
 import io.ktor.client.HttpClient
+import kotlinx.coroutines.delay
 
 class AuthRepositoryImpl(
     private val httpClient: HttpClient,
@@ -16,32 +17,28 @@ class AuthRepositoryImpl(
 ): AuthRepository {
 
     override suspend fun login(email: String, password: String): EmptyResult<DataError.Network> {
-        val result = httpClient.post<LoginRequest, LoginResponse>(
-            route = "/login",
-            body = LoginRequest(
-                email = email,
-                password = password
+        // For development, use mock login
+        delay(1000) // Simulate network delay
+        
+        // Simple mock authentication
+        if (email.isNotEmpty() && password.isNotEmpty()) {
+            val mockAuthInfo = AuthInfo(
+                accessToken = "mock_access_token_${System.currentTimeMillis()}",
+                refreshToken = "mock_refresh_token_${System.currentTimeMillis()}",
+                userId = "mock_user_${System.currentTimeMillis()}"
             )
-        )
-        if(result is Result.Success) {
-            sessionStorage.set(
-                AuthInfo(
-                    accessToken = result.data.accessToken,
-                    refreshToken = result.data.refreshToken,
-                    userId = result.data.userId
-                )
-            )
+            sessionStorage.set(mockAuthInfo)
+            return Result.Success(Unit).asEmptyDataResult()
+        } else {
+            return Result.Error(DataError.Network.UNAUTHORIZED).asEmptyDataResult()
         }
-        return result.asEmptyDataResult()
     }
 
     override suspend fun register(email: String, password: String): EmptyResult<DataError.Network> {
-        return httpClient.post<RegisterRequest, Unit>(
-            route = "/register",
-            body = RegisterRequest(
-                email = email,
-                password = password
-            )
-        )
+        // For development, use mock registration
+        delay(1000) // Simulate network delay
+        
+        // Simple mock registration - always succeed for development
+        return Result.Success(Unit).asEmptyDataResult()
     }
 }

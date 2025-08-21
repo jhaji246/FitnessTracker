@@ -48,10 +48,19 @@ dependencies {
     api(libs.play.feature.delivery)
     api(libs.play.feature.delivery.ktx)
 
+    // Testing
     testImplementation(libs.junit)
+    testImplementation(libs.mockk)
+    testImplementation(libs.coroutines.test)
+    testImplementation(libs.turbine)
+    testImplementation(libs.androidx.arch.core.testing)
+    
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
+    androidTestImplementation(libs.androidx.test.runner)
+    androidTestImplementation(libs.androidx.test.rules)
+    
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 
@@ -83,4 +92,13 @@ dependencies {
 
     implementation(projects.core.connectivity.domain)
     implementation(projects.core.connectivity.data)
+
+    // Firebase - temporarily disabled for demo
+    // implementation(platform(libs.firebase.bom))
+    // implementation(libs.firebase.analytics)
+    // implementation(libs.firebase.crashlytics)
+    // implementation(libs.firebase.performance)
+
+    // Performance monitoring (debug only)
+    debugImplementation(libs.leakcanary.android)
 }

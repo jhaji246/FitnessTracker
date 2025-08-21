@@ -21,4 +21,21 @@
     <string name="skip">Skip</string>
     <string name="next">Next</string>
     <string name="finish">Finish</string>
+    
+    <!-- Missing strings -->
+    <string name="youre_logged_in">You\'re logged in!</string>
+    <string name="hi_there">Hi there!</string>
+    <string name="example_email">example@email.com</string>
+    <string name="dont_have_an_account">Don\'t have an account?</string>
+    <string name="error_email_password_incorrect">Email or password is incorrect</string>
+    <string name="registration_successful">Registration successful!</string>
+    <string name="create_account">Create Account</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="must_be_a_valid_email">Must be a valid email</string>
+    <string name="at_least_x_characters">At least %d characters</string>
+    <string name="at_least_one_number">At least one number</string>
+    <string name="contains_lowercase_char">Contains lowercase character</string>
+    <string name="contains_uppercase_char">Contains uppercase character</string>
+    <string name="error_email_exists">Email already exists</string>
+    <string name="show">Show</string>
 </resources>

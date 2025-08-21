@@ -30,7 +30,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.avi.auth.presentation.R
 import com.avi.core.presentation.designsystem.EmailIcon
-import com.avi.core.presentation.designsystem.Poppins
+
 import com.avi.core.presentation.designsystem.RuniqueTheme
 import com.avi.core.presentation.designsystem.components.GradientBackground
 import com.avi.core.presentation.designsystem.components.RuniqueActionButton
@@ -102,7 +102,7 @@ private fun LoginScreen(
             )
             Text(
                 text = stringResource(id = R.string.fitnesstracker_welcome_text),
-                style = Poppins.h2,
+                style = MaterialTheme.typography.headlineMedium,
                 color = MaterialTheme.colorScheme.onSurface,
                 textAlign = TextAlign.Center
             )
@@ -142,7 +142,7 @@ private fun LoginScreen(
             val annotatedString = buildAnnotatedString {
                 withStyle(
                     style = SpanStyle(
-                        fontFamily = Poppins,
+                        fontFamily = MaterialTheme.typography.bodyLarge.fontFamily,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 ) {
@@ -155,7 +155,7 @@ private fun LoginScreen(
                         style = SpanStyle(
                             fontWeight = FontWeight.SemiBold,
                             color = MaterialTheme.colorScheme.primary,
-                            fontFamily = Poppins
+                            fontFamily = MaterialTheme.typography.bodyLarge.fontFamily
                         )
                     ) {
                         append(stringResource(id = R.string.sign_up))

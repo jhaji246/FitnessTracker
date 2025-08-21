@@ -38,7 +38,7 @@ import com.avi.auth.presentation.R
 import com.avi.core.presentation.designsystem.CheckIcon
 import com.avi.core.presentation.designsystem.CrossIcon
 import com.avi.core.presentation.designsystem.EmailIcon
-import com.avi.core.presentation.designsystem.Poppins
+
 import com.avi.core.presentation.designsystem.RuniqueDarkRed
 import com.avi.core.presentation.designsystem.RuniqueGreen
 import com.avi.core.presentation.designsystem.RuniqueTheme
@@ -112,7 +112,7 @@ private fun RegisterScreen(
             val annotatedString = buildAnnotatedString {
                 withStyle(
                     style = SpanStyle(
-                        fontFamily = Poppins,
+                        fontFamily = MaterialTheme.typography.bodyLarge.fontFamily,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 ) {
@@ -125,7 +125,7 @@ private fun RegisterScreen(
                         style = SpanStyle(
                             fontWeight = FontWeight.SemiBold,
                             color = MaterialTheme.colorScheme.primary,
-                            fontFamily = Poppins
+                            fontFamily = MaterialTheme.typography.bodyLarge.fontFamily
                         )
                     ) {
                         append(stringResource(id = R.string.login))
